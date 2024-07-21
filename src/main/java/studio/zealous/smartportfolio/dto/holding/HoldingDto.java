@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 /*
 * Holdings Class
 * */
-public class Holding {
+public class HoldingDto {
 
     @JsonProperty("t1quantity")
     private Integer t1Quantity;

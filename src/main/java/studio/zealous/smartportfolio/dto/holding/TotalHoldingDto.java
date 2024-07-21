@@ -12,7 +12,7 @@ import java.time.LocalDate;
 /*
 * TotalHolding class
 * */
-public class TotalHolding {
+public class TotalHoldingDto {
     @JsonProperty("totalholdingvalue")
     private BigDecimal totalHoldingValue;
 
