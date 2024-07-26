@@ -1,11 +1,6 @@
 package studio.zealous.smartportfolio.config;
 
 import com.angelbroking.smartapi.SmartConnect;
-/*import com.angelbroking.smartapi.http.SessionExpiryHook;*/
-import com.angelbroking.smartapi.models.User;
-/*import com.mongodb.ConnectionString;
-import com.mongodb.client.MongoClient;
-import lombok.Value;*/
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -14,27 +9,21 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-/*import org.springframework.data.mongodb.core.MongoClientFactoryBean;*/
 import studio.zealous.smartportfolio.config.properties.AngelOneProperties;
 import studio.zealous.smartportfolio.config.properties.TimeZoneProperties;
-import studio.zealous.smartportfolio.service.UserService;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
 
 @Configuration
 @ConfigurationPropertiesScan
 public class AppConfig {
-
-
 
     @Bean
     @ConfigurationProperties(prefix = "angelone")
     public AngelOneProperties angelOneProperties() {
         return new AngelOneProperties();
     }
-
 
     @Bean
     public SmartConnect smartConnect(AngelOneProperties angelOneProperties){

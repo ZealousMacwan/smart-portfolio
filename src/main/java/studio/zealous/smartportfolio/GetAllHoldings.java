@@ -22,8 +22,6 @@ import studio.zealous.smartportfolio.util.time.TimeUtil;
 
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -87,7 +85,7 @@ public class GetAllHoldings {
                 holding.setId(existingHolding.get().getId());
                 //when we replace current holding it doesn't have user so we are setting explicitly
                 holding.setUser(smartPortfolioUser);
-                log.info(String.format("Found existing holding for the day, it will be updated"));
+                log.info("Found existing holding for the day, it will be updated");
             }else{
                 //save new entry
                 holding.setUser(smartPortfolioUser);
@@ -100,7 +98,7 @@ public class GetAllHoldings {
         if(existingTotalHolding.isPresent()){
             totalHolding.setId(existingTotalHolding.get().getId());
             totalHolding.setUser(smartPortfolioUser);
-            log.info(String.format("Found existing total holding for the day, it will be updated"));
+            log.info("Found existing total holding for the day, it will be updated");
         }else{
             //save new entry
             totalHolding.setUser(smartPortfolioUser);
