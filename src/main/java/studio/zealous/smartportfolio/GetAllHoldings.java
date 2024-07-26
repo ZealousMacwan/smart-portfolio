@@ -18,6 +18,7 @@ import studio.zealous.smartportfolio.service.TotalHoldingService;
 import studio.zealous.smartportfolio.service.UserService;
 import studio.zealous.smartportfolio.util.converter.HoldingConverter;
 import studio.zealous.smartportfolio.util.converter.TotalHoldingConverter;
+import studio.zealous.smartportfolio.util.time.TimeUtil;
 
 
 import java.io.IOException;
@@ -80,7 +81,7 @@ public class GetAllHoldings {
         List<Holding> holdings = holdingConverter.toListOfEntity(clientHoldingData.getHoldingDtos());
         for(Holding holding: holdings){
             //Long userId = userService.getIdFromAngelUserId(user.getUserId());
-            Optional<Holding> existingHolding = holdingService.findExistingHoldingByUserIdFkTradingSymbolCreatedAt(smartPortfolioUser.getId(), holding.getTradingSymbol(), LocalDateTime.now());
+            Optional<Holding> existingHolding = holdingService.findExistingHoldingByUserIdFkTradingSymbolCreatedAt(smartPortfolioUser.getId(), holding.getTradingSymbol(), TimeUtil.nowWithZone());
             if(existingHolding.isPresent()){
                 //update existing
                 holding.setId(existingHolding.get().getId());
@@ -91,11 +92,11 @@ public class GetAllHoldings {
                 //save new entry
                 holding.setUser(smartPortfolioUser);
             }
-            holding.setCreatedAt(LocalDateTime.now());
+            holding.setCreatedAt(TimeUtil.nowWithZone());
             holdingService.saveHolding(holding);
         }
 
-        Optional<TotalHolding> existingTotalHolding = totalHoldingService.findExistingTotalHoldingByUserIdFkCreatedAt(smartPortfolioUser.getId(), LocalDateTime.now());
+        Optional<TotalHolding> existingTotalHolding = totalHoldingService.findExistingTotalHoldingByUserIdFkCreatedAt(smartPortfolioUser.getId(), TimeUtil.nowWithZone());
         if(existingTotalHolding.isPresent()){
             totalHolding.setId(existingTotalHolding.get().getId());
             totalHolding.setUser(smartPortfolioUser);
@@ -104,9 +105,8 @@ public class GetAllHoldings {
             //save new entry
             totalHolding.setUser(smartPortfolioUser);
         }
-        totalHolding.setCreatedAt(LocalDateTime.now());
+        totalHolding.setCreatedAt(TimeUtil.nowWithZone());
         totalHoldingService.saveTotalHolding(totalHolding);
-
 
     }
 }

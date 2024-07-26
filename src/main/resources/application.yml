@@ -13,4 +13,7 @@ angelone:
   clientcode: 
   clientpassword: 
   totp:
+market:
+  timezone:
+    zoneid:
   

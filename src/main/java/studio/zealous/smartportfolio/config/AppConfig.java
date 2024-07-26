@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 /*import org.springframework.data.mongodb.core.MongoClientFactoryBean;*/
 import studio.zealous.smartportfolio.config.properties.AngelOneProperties;
+import studio.zealous.smartportfolio.config.properties.TimeZoneProperties;
 import studio.zealous.smartportfolio.service.UserService;
 
 import java.time.LocalDateTime;
@@ -70,4 +71,10 @@ public class AppConfig {
         mongo.setConnectionString(conn);
         return mongo;
     }*/
+
+    @Bean
+    @ConfigurationProperties(prefix = "market.timezone")
+    public TimeZoneProperties timeZoneProperties(){
+        return new TimeZoneProperties();
+    }
 }
