@@ -15,4 +15,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(value = "SELECT id FROM user WHERE angel_user_id = :angelUserId", nativeQuery = true)
     Long getIdByAngelUserIdNative(@Param("angelUserId") String angelUserId);
+
 }

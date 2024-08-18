@@ -20,11 +20,11 @@ public class CommandLineStartup implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println(angelOneProperties.getClientcode());
-        try {
+      /*  try {
             getAllHoldings.getAllHolding();
         } catch (SmartAPIException e) {
             throw new RuntimeException(e);
-        }
+        }*/
     }
 
 }

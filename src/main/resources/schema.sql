@@ -43,5 +43,16 @@ CREATE TABLE holdings (
     FOREIGN KEY (user_id_fk) REFERENCES users (id)
 );
 
+CREATE TABLE user_tokens_mapping (
+    id SERIAL PRIMARY KEY,
+    angel_user_id VARCHAR(255) UNIQUE NOT NULL,
+    api_key VARCHAR(255) NOT NULL,
+    jwt_token TEXT NOT NULL,
+    refresh_token TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (angel_user_id) REFERENCES users (angel_user_id) ON DELETE CASCADE
+);
+
 -- DROP table holdings, total_holdings, users;
 -- TRUNCATE table holdings, total_holdings;

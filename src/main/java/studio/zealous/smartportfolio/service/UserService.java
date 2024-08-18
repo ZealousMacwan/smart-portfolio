@@ -30,4 +30,8 @@ public class UserService {
         return id;
     }
 
+    public String saveUser(User user) {
+        return userRepository.save(user).getAngelUserId();
+    }
+
 }

@@ -28,7 +28,7 @@ import java.util.Scanner;
 
 @Component
 @Slf4j
-public class GetAllHoldings {
+public class GetAllHoldings {/*
 
     @Autowired
     SmartConnect smartConnect;
@@ -51,9 +51,7 @@ public class GetAllHoldings {
     @Autowired
     UserService userService;
 
-    /**
-     * Get All Holdings
-     */
+
     public void getAllHolding() throws SmartAPIException, IOException {
         // Returns Holdings.
         Scanner scanner = new Scanner(System.in);
@@ -106,5 +104,5 @@ public class GetAllHoldings {
         totalHolding.setCreatedAt(TimeUtil.nowWithZone());
         totalHoldingService.saveTotalHolding(totalHolding);
 
-    }
+    }*/
 }

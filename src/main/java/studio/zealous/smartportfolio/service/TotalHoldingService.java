@@ -8,6 +8,7 @@ import studio.zealous.smartportfolio.repository.jpa.TotalHoldingRepository;
 import studio.zealous.smartportfolio.util.converter.TotalHoldingConverter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,6 +30,10 @@ public class TotalHoldingService {
 
     public Optional<TotalHolding> findExistingTotalHoldingByUserIdFkCreatedAt(Long userIdFk, LocalDateTime createdAt){
         return totalHoldingRepository.findByUserAndDate(userIdFk, createdAt);
+    }
+
+    public List<TotalHolding> getTotalHolding(String angelUserId) {
+        return totalHoldingRepository.findByAngelUserId(angelUserId);
     }
 
 }

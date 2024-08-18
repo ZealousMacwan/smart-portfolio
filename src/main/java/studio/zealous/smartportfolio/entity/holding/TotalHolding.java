@@ -17,7 +17,7 @@ public class TotalHolding {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id_fk", referencedColumnName = "id")
     private User user;
 
