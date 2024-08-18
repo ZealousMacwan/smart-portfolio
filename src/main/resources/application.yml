@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: 
+    username: 
+    password: 
+    driver-class-name: 
+  jpa:
+    hibernate:
+      ddl-auto: none  # Auto-generate the schema from entities (use 'none' or 'validate' for production)
+    show-sql: true  # Show SQL queries in the console (for debugging)
+server:
+  port:
+  max-http-request-header-size: 16384 #16KB
+angelone:
+  tradingapikey: 
+  clientcode: 
+  clientpassword: 
+  totp:
+market:
+  timezone:
+    zoneid:
+  
