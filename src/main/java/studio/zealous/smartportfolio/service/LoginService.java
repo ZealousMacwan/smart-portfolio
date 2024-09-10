@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import studio.zealous.smartportfolio.config.properties.AngelOneProperties;
 import studio.zealous.smartportfolio.dto.user.LoginRequestDTO;
+import studio.zealous.smartportfolio.entity.UserTokensMapping;
 
 @Service
 public class LoginService {

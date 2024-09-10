@@ -1,6 +1,5 @@
 package studio.zealous.smartportfolio.config;
 
-import com.angelbroking.smartapi.SmartConnect;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -12,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 import studio.zealous.smartportfolio.config.properties.AngelOneProperties;
 import studio.zealous.smartportfolio.config.properties.TimeZoneProperties;
+import studio.zealous.smartportfolio.service.LoginService;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

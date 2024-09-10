@@ -6,6 +6,8 @@ import org.springframework.data.repository.query.Param;
 import studio.zealous.smartportfolio.entity.User;
 import studio.zealous.smartportfolio.entity.UserTokensMapping;
 
+import java.util.Optional;
+
 public interface UserTokensMappingRepository extends JpaRepository<UserTokensMapping, Long> {
 
     @Query("SELECT u.angelUserId.angelUserId FROM UserTokensMapping u WHERE u.jwtToken = :jwtToken")
@@ -19,4 +21,6 @@ public interface UserTokensMappingRepository extends JpaRepository<UserTokensMap
 
     @Query("SELECT u.apiKey FROM UserTokensMapping  u where u.angelUserId.angelUserId = :angelUserId")
     String findApiKeyByAngelUserId(@Param("angelUserId") String angelUserId);
+
+    Optional<UserTokensMapping> findByJwtToken(String jwtToken);
 }
